@@ -4,26 +4,23 @@ module TenThousandFeet
   end
 
   def stub_ten_thousand_feet_project_response(client:)
-    allow(client).to receive(:get_projects).and_return(empty_project_response)
+    allow(client).to receive(:get_projects).and_return(EMPTY_PROJECT_RESPONSE)
   end
 
   def stub_ten_thousand_feet_user_response(client:)
-    allow(client).to receive(:get_project_users).and_return(empty_user_response)
+    allow(client).to receive(:get_project_users).and_return(EMPTY_USER_RESPONSE)
   end
 
-  def empty_project_response
-    {"paging"=>
+  EMPTY_PROJECT_RESPONSE = {"paging"=>
       {"per_page"=>20,
        "page"=>1,
        "previous"=>nil,
        "self"=>"/api/v1/projects?&page=1",
        "next"=>nil,
        "count"=>12},
-     "data"=>[]}
-  end
+     "data"=>[]}.freeze
 
-  def project_response
-    {"paging"=>
+  PROJECT_RESPONSE = {"paging"=>
       {"per_page"=>20,
        "page"=>1,
        "previous"=>nil,
@@ -65,11 +62,9 @@ module TenThousandFeet
             "per_page"=>0},
           "data"=>[]}}
         ]
-      }
-  end
+      }.freeze
 
-  def empty_user_response
-    {"paging"=>
+  EMPTY_USER_RESPONSE = {"paging"=>
       {"per_page"=>20,
        "page"=>1,
        "previous"=>nil,
@@ -77,11 +72,9 @@ module TenThousandFeet
         "/api/v1/projects/1724070/users?project_id=1724070&page=1",
        "next"=>nil},
      "data"=>[]
-    }
-  end
+   }.freeze
 
-  def user_response
-    {"paging"=>
+  USER_RESPONSE = {"paging"=>
       {"per_page"=>20,
        "page"=>1,
        "previous"=>nil,
@@ -121,6 +114,5 @@ module TenThousandFeet
         "archived_at"=>nil,
         "thumbnail"=>""}
       ]
-    }
-  end
+    }.freeze
 end

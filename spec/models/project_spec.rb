@@ -9,7 +9,7 @@ RSpec.describe Project, type: :model do
       project_id = 1724065
       expect(client).to receive(:get_project_users)
         .with(project_id)
-        .and_return(user_response)
+        .and_return(TenThousandFeet::USER_RESPONSE)
 
       result = Project.new("id"=> project_id).users
       user = result.first
@@ -22,7 +22,7 @@ RSpec.describe Project, type: :model do
         project_id = 1724065
         expect(client).to receive(:get_project_users)
           .with(project_id)
-          .and_return(empty_user_response)
+          .and_return(TenThousandFeet::EMPTY_USER_RESPONSE)
 
         result = Project.new("id"=> project_id).users
         expect(result).to eq([])
