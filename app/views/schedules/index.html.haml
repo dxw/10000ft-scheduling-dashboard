@@ -8,4 +8,7 @@
         %h2= project.name
         %ul.team-members
           - project.users.each do |user|
-            %li= user.display_name
+            %li
+              %div
+                = image_tag(user.thumbnail, class: 'img')
+                %h3.first-name= user.first_name
