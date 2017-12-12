@@ -1,0 +1,7 @@
+#!/bin/sh
+set -e
+
+docker-compose run --rm \
+  -e RAILS_ENV=test \
+  -e DOMAIN=http://test.host \
+  app /bin/bash -c "rspec"
