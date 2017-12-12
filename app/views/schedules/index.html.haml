@@ -1,16 +1,11 @@
--# Schedule
--#
--# MyTVH
--# Unassigned
--# dxw - On call
-
 %div.screen
   %div.projects
     -# %div.project.oncall
     -# %div.project.holiday
     -# %div.project{ class: 'proejct-color' }
-    %div.project.unassigned
-      %h2 Project name
-      %ul.team-members
-        %li Team member 1
-        %li Team member 2
+    - @projects_and_users.each do |project, users|
+      %div.project.unassigned
+        %h2= project['name']
+        %ul.team-members
+          - users.each do |user|
+            %li= user['display_name']
