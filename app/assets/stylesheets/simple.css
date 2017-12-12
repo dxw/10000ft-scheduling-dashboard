@@ -48,3 +48,73 @@ ul.nav li a {
   color: #b94a48;
 }
 
+@font-face {
+  font-family: 'FoundersGroteskRegular';
+  font-weight: bold;
+  src: font-url('FoundersGroteskTextWeb-Regular.woff2') format('woff2');
+  src: font-url('FoundersGroteskTextWeb-Regular.woff') format('woff');
+}
+
+body {
+  margin: 0 auto;
+  padding: 0;
+  font-family: "FoundersGroteskRegular", sans-serif;
+  width: 100%;
+  background: #000;
+  color: #fff; /* dxw blue = #1ba4de */
+}
+
+.screen {
+  top: 1vh;
+  width: 100vw;
+  height: 98vh;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  overflow: hidden;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 800;
+  text-align: center;
+  margin: 0;
+  padding: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  position: relative;
+  background-color: rgb(143, 146, 148);
+  text-shadow: 1px 1px 3px #000;
+}
+
+
+ul {
+  padding: 10px;
+}
+
+ul, li {
+  margin:0;
+  padding: 0;
+  list-style: none;
+}
+
+.plane {
+  vertical-align: bottom;
+  height: 30px;
+  -moz-transform: rotate(-17deg);
+  -o-transform: rotate(-17deg);
+  -webkit-transform: rotate(-17deg);
+  -ms-transform: rotate(-17deg);
+  transform: rotate(-17deg);
+}
+
+.phone {
+  height: 29px;
+  vertical-align: bottom;
+}
+
+.cloud {
+  height: 24px;
+  vertical-align: baseline;
+}
