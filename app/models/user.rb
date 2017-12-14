@@ -14,6 +14,6 @@ class User < SimpleDelegator
   end
 
   private def default_thumbnail
-    'wall.jpg'
+    'https://app.10000ft.com/images/anon.jpg'
   end
 end

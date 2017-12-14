@@ -10,7 +10,7 @@ RSpec.describe User, type: :model do
     context 'when there is no thumbnail' do
       it 'return the default wall' do
         result = User.new('thumbnail' => '')
-        expect(result.thumbnail).to eq('wall.jpg')
+        expect(result.thumbnail).to eq('https://app.10000ft.com/images/anon.jpg')
       end
     end
   end
