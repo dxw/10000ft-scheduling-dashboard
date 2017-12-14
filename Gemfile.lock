@@ -247,6 +247,7 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
+    timecop (0.9.1)
     tzinfo (1.2.4)
       thread_safe (~> 0.1)
     uglifier (4.0.2)
@@ -298,6 +299,7 @@ DEPENDENCIES
   spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)
   ten_thousand_feet
+  timecop
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)

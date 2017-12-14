@@ -17,6 +17,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'webmock'
+  gem 'timecop'
 end
 group :development do
   gem 'web-console', '>= 3.3.0'
