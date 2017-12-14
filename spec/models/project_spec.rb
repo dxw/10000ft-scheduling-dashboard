@@ -1,46 +1,63 @@
 require 'rails_helper'
 
 RSpec.describe Project, type: :model do
-  describe '#users' do
-    let(:client) { double }
-    before(:each) { stub_ten_thousand_feet_client(client: client) }
+  let(:client) { double }
+  before(:each) { stub_ten_thousand_feet_client(client: client) }
 
-    it 'gets users for this project from the scheduling API' do
-      project_id = 1724065
-      expect(client).to receive(:get_project_users)
-        .with(project_id)
-        .and_return(TenThousandFeet::USER_RESPONSE)
-
-      result = Project.new("id"=> project_id).users
-      user = result.first
-
-      expect(user.display_name).to eq('Poss Apostolou')
+  describe '#assignments' do
+    it 'returns empty when there are no assignments' do
+      result = Project.new.assignments(assignments: [])
+      expect(result).to eq([])
     end
 
-    context 'when no users were found' do
-      it 'returns an empty array' do
-        project_id = 1724065
-        expect(client).to receive(:get_project_users)
-          .with(project_id)
-          .and_return(TenThousandFeet::EMPTY_USER_RESPONSE)
+    it 'returns assignments that are associated with this project' do
+      assignment = Assignment.new(assignable_id: 'project-id')
+      result = Project.new(id: 'project-id').assignments(assignments: [assignment])
+      expect(result).to eq([assignment])
+    end
 
-        result = Project.new("id"=> project_id).users
+    context 'when there are assignments for a different project' do
+      it 'returns empty when there are no assignments' do
+        assignment = Assignment.new(assignable_id: 'another-project-id')
+        result = Project.new(id: 'project-id').assignments(assignments: [assignment])
         expect(result).to eq([])
       end
     end
   end
 
-  describe '#id' do
-    it 'returns the external ID' do
-      result = Project.new('id' => 132456)
-      expect(result.id).to eq(132456)
+  describe '#tentative?' do
+    it 'returns true when it is in a tentative state' do
+      result = Project.new(project_state: 'Tentative')
+      expect(result.tentative?).to eq(true)
+    end
+
+    it 'returns false when it is NOT in a tentative state' do
+      result = Project.new(project_state: 'Foobar')
+      expect(result.tentative?).to eq(false)
     end
   end
 
-  describe '#name' do
-    it 'returns the external name' do
-      result = Project.new('name' => 'Essex')
-      expect(result.name).to eq('Essex')
+  describe '#internal?' do
+    it 'returns true when it is in a internal state' do
+      result = Project.new(project_state: 'Internal')
+      expect(result.internal?).to eq(true)
+    end
+
+    it 'returns false when it is NOT in a internal state' do
+      result = Project.new(project_state: 'Foobar')
+      expect(result.internal?).to eq(false)
+    end
+  end
+
+  describe '#confirmed?' do
+    it 'returns true when it is in a confirmed state' do
+      result = Project.new(project_state: 'Confirmed')
+      expect(result.confirmed?).to eq(true)
+    end
+
+    it 'returns false when it is NOT in a confirmed state' do
+      result = Project.new(project_state: 'Foobar')
+      expect(result.confirmed?).to eq(false)
     end
   end
 end

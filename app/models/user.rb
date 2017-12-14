@@ -1,14 +1,16 @@
 class User < SimpleDelegator
-  def first_name
-    self['first_name']
-  end
+  attr_reader :id,
+              :first_name,
+              :display_name,
+              :thumbnail
 
-  def display_name
-    self['display_name']
-  end
+  def initialize(args = {})
+    args = args.symbolize_keys if args
 
-  def thumbnail
-    self['thumbnail'].present? ? self['thumbnail'] : default_thumbnail
+    @id = args[:id]
+    @first_name = args[:first_name]
+    @display_name = args[:display_name]
+    @thumbnail = args[:thumbnail].blank? ? default_thumbnail : args[:thumbnail]
   end
 
   private def default_thumbnail
