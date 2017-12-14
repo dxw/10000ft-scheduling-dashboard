@@ -1,5 +1,5 @@
 class SchedulesController < ApplicationController
   def index
-    @projects = ProjectFinder.call
+    @facade = TodayScheduleFacade.new
   end
 end

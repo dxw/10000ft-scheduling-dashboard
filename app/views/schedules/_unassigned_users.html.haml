@@ -1,0 +1,6 @@
+%div.project{ class: 'unassigned' }
+  %h2= 'Unassigned'
+  %ul.team-members
+    - users.each do |user|
+      %li.member
+        = render 'user', user: user

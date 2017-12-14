@@ -1,14 +1,20 @@
 %div.screen
   %div.projects
-    -# %div.project.oncall
-    -# %div.project.holiday
-    -# %div.project{ class: 'project-color' }
-    - @projects.each do |project|
-      %div.project.unassigned
-        %h2= project.name
-        %ul.team-members
-          - project.users.each do |user|
-            %li
-              %div
-                = image_tag(user.thumbnail, class: 'img')
-                %h3.first-name= user.first_name
+    - if @facade.projects.empty?
+      %div
+        = I18n.t('errors.projects.missing')
+    - else
+      - @facade.projects.each do |project|
+        - project_assignments = project.assignments(assignments: @facade.todays_assignments)
+
+        - if project_assignments.present?
+          = render 'project', project: project, assignments: project_assignments, users: @facade.users
+
+    - if @facade.holiday_assignments.present?
+      = render 'project', project: OpenStruct.new(name: 'Holiday'), assignments: @facade.holiday_assignments, users: @facade.users
+
+    - if @facade.sick_assignments.present?
+      = render 'project', project: OpenStruct.new(name: 'Sick'), assignments: @facade.sick_assignments, users: @facade.users
+
+    - if @facade.users_without_assignments.present?
+      = render 'unassigned_users', users: @facade.users_without_assignments

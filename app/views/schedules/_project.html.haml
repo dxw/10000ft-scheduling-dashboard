@@ -1,0 +1,7 @@
+%div.project{ class: "#{project.name.parameterize} #{'aqua' if project.internal?} #{'orange' if project.confirmed?} #{'magenta' if project.oncall?}" }
+  %h2= project.name.downcase.titleize
+  %ul.team-members
+    - assignments.each do |assignment|
+      - user = users.detect{ |user| user.id == assignment.user_id }
+      %li.member
+        = render 'user', user: user
