@@ -1,4 +1,4 @@
-%div.project{ class: "#{project.name.parameterize} #{'aqua' if project.internal?} #{'orange' if project.confirmed?} #{'magenta' if project.oncall?}" }
+%div.project{ class: project_classes(project: project) }
   %h2= project.name.downcase.titleize
   %ul.team-members
     - assignments.each do |assignment|

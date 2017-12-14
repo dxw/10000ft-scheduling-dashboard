@@ -1,3 +1,14 @@
+$internal: rgb(129, 88, 189);
+$internal_with_alpha: rgba(129, 88, 189, 0.25);
+$confirmed: rgb(0, 163, 221);
+$confirmed_with_alpha: rgba(0, 163, 221, 0.25);
+$leave: rgb(250, 100, 0);
+$leave_with_alpha: rgba(250, 100, 0, 0.25);
+$unassigned: rgb(70, 70, 70);
+$unassigned_with_alpha: rgba(70, 70, 70, 0.25);
+$oncall: rgb(28, 164, 222);
+$oncall_with_alpha: rgba(28, 164, 222, 0.25);
+
 .project {
   background-color: #4c535a;
   flex-grow: 3;
@@ -78,66 +89,48 @@
   margin-top: -12px;
 }
 
-.project.oncall {
-  border-color: rgb(210, 40, 100);
-  background-color: rgba(210, 40, 100, 0.25)
+.project.internal {
+  background-color: $internal_with_alpha;
 }
 
-.project.oncall h2 {
-  background-color: rgb(210,40,100);
+.project.internal h2 {
+  background-color: $internal;
 }
 
-.project.holiday {
-  border-color: rgb(40, 40, 40);
-  background-color: rgba(40, 40, 40, 0.25)
-}
-
-.project.holiday h2 {
-  background-color: rgb(40, 40, 40);
-}
-
+.project.holiday,
 .project.sick {
-  border-color: rgb(70, 70, 70);
-  background-color: rgba(70, 70, 70, 0.25)
+  border-color: $leave;
+  background-color: $leave_with_alpha;
 }
 
+.project.holiday h2,
 .project.sick h2 {
-  background-color: rgb(70, 70, 70);
+  background-color: $leave;
 }
 
 .project.unassigned {
-  border-color: rgb(59,196,146);
-  background-color: rgba(59,196,146, 0.25)
-
+  border-color: $unassigned;
+  background-color: $unassigned_with_alpha;
 }
 
 .project.unassigned h2 {
-  background-color: rgb(59,196,146);
+  background-color: $unassigned;
 }
 
-.project.purple {
-  border-color: rgb(120, 50, 140);
-  background-color: rgba(120, 50, 140, 0.25);
+.project.confirmed {
+  border-color: $confirmed;
+  background-color: $confirmed_with_alpha;
 }
 
-.project.purple h2 {
-  background-color: rgb(120,50,140);
+.project.confirmed h2 {
+  background-color: $confirmed;
 }
 
-.project.orange {
-  border-color: rgb(250, 100, 0);
-  background-color: rgba(250, 100, 0, 0.25);
+.project.oncall {
+  border-color: $oncall;
+  background-color: $oncall_with_alpha;
 }
 
-.project.orange h2 {
-  background-color: rgb(250,100,0);
-}
-
-.project.aqua, .project.magenta {
-  border-color: rgb(28,164,222);
-  background-color: rgba(28, 164, 222, 0.25);
-}
-
-.project.aqua h2, .project.magenta h2 {
-  background-color: rgb(28,164,222);
+.project.oncall h2 {
+  background-color: $oncall;
 }

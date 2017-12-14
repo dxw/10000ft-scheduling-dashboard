@@ -18,18 +18,22 @@ class Project < SimpleDelegator
   end
 
   def internal?
-    state.eql?('Internal')
+    return false unless state
+    state.downcase.eql?('internal')
   end
 
   def tentative?
-    state.eql?('Tentative')
+    return false unless state
+    state.downcase.eql?('tentative')
   end
 
   def confirmed?
-    state.eql?('Confirmed')
+    return false unless state
+    state.downcase.eql?('confirmed')
   end
 
   def oncall?
-    name.eql?('On Call')
+    return false unless name
+    name.downcase.eql?('on call')
   end
 end
