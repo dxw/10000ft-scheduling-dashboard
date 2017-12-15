@@ -1,6 +1,6 @@
 class AssignmentFinder
   def self.call(users:, from: Date.current, to: Date.current )
-    client = TenThousandFeet.new(auth: ENV['scheduling_api_key'])
+    client = TenThousandFeet.new(auth: ENV['SCHEDULING_API_KEY'])
     users.map do |user|
       client.get_assignments(user.id, per_page: 500)['data']
         .map { |assignment_args| Assignment.new(assignment_args) }
