@@ -60,4 +60,16 @@ RSpec.describe Project, type: :model do
       expect(result.confirmed?).to eq(false)
     end
   end
+
+  describe '#leave?' do
+    it 'returns true when it is in a leave state' do
+      result = Project.new(project_state: 'Leave')
+      expect(result.leave?).to eq(true)
+    end
+
+    it 'returns false when it is NOT in a leave state' do
+      result = Project.new(project_state: 'Foobar')
+      expect(result.leave?).to eq(false)
+    end
+  end
 end

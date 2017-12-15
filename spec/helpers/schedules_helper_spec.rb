@@ -31,5 +31,13 @@ RSpec.describe SchedulesHelper, type: :helper do
         expect(result).to eq('on-call oncall')
       end
     end
+
+    context 'when the project is of type leave' do
+      it 'adds the leave class' do
+        project = Project.new(name: 'sick', project_state: 'leave')
+        result = project_classes(project: project)
+        expect(result).to eq('sick leave')
+      end
+    end
   end
 end

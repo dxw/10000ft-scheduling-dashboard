@@ -36,4 +36,9 @@ class Project < SimpleDelegator
     return false unless name
     name.downcase.eql?('on call')
   end
+
+  def leave?
+    return false unless state
+    state.downcase.eql?('leave')
+  end
 end
