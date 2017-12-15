@@ -48,9 +48,7 @@ USER root
 COPY . $APP_PATH
 
 # compile assets for production
-RUN \
-  FIGARO_PATH=${APP_PATH}/config/application.example.yml \
-  bundle exec rake --quiet assets:precompile
+RUN bundle exec rake assets:precompile
 
 # make app own the project files
 RUN chown -R app:app $APP_PATH
