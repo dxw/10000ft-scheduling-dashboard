@@ -26,7 +26,7 @@ RSpec.describe AssignmentFinder, type: :service do
         end_date = (Date.current + 2)
 
         expect(client).to receive(:get_assignments)
-          .and_return(TenThousandFeet.assignment_response(starts_at: '2000-1-1', ends_at: '2000-2-2'))
+          .and_return(TenThousandFeetStubs.assignment_response(starts_at: '2000-1-1', ends_at: '2000-2-2'))
 
         result = described_class.call(users: [user], from: start_date, to: end_date)
 
@@ -63,9 +63,9 @@ RSpec.describe AssignmentFinder, type: :service do
       users = [user_1, user_2]
 
       expect(client).to receive(:get_assignments)
-        .and_return(TenThousandFeet.assignment_response(project_id: 123, user_id: user_1.id))
+        .and_return(TenThousandFeetStubs.assignment_response(project_id: 123, user_id: user_1.id))
       expect(client).to receive(:get_assignments)
-        .and_return(TenThousandFeet.assignment_response(project_id: 123, user_id: user_2.id))
+        .and_return(TenThousandFeetStubs.assignment_response(project_id: 123, user_id: user_2.id))
 
       result = described_class.call(users: users)
 
@@ -84,7 +84,7 @@ RSpec.describe AssignmentFinder, type: :service do
         user = User.new(id: 123)
 
         expect(client).to receive(:get_assignments)
-          .and_return(TenThousandFeet.empty_assignment_response)
+          .and_return(TenThousandFeetStubs.empty_assignment_response)
 
         result = described_class.call(users: [user])
 

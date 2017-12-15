@@ -1,36 +1,36 @@
-module TenThousandFeet
+module TenThousandFeetStubs
   def stub_ten_thousand_feet_client(client: double)
-    allow(TenThousandFeet).to receive(:new).and_return(client)
+    allow(TenThousandFeetWrapper).to receive(:client).and_return(client)
   end
 
   def stub_ten_thousand_feet_project_response(client:)
     allow(client).to receive(:get_projects)
       .with(anything)
-      .and_return(TenThousandFeet.empty_project_response)
+      .and_return(TenThousandFeetStubs.empty_project_response)
   end
 
   def stub_ten_thousand_feet_user_response(client:)
     allow(client).to receive(:get_users)
       .with(anything)
-      .and_return(TenThousandFeet.empty_user_response)
+      .and_return(TenThousandFeetStubs.empty_user_response)
   end
 
   def stub_ten_thousand_feet_assignment_response(client:)
     allow(client).to receive(:get_assignments)
       .with(anything, anything)
-      .and_return(TenThousandFeet.empty_assignment_response)
+      .and_return(TenThousandFeetStubs.empty_assignment_response)
   end
 
   def stub_ten_thousand_feet_leave_types_response(client:)
     allow(client).to receive(:get_leave_types)
       .with(anything)
-      .and_return(TenThousandFeet.empty_leave_types_response)
+      .and_return(TenThousandFeetStubs.empty_leave_types_response)
   end
 
   def stub_ten_thousand_feet_project_users_response(client:)
     allow(client).to receive(:get_project_users)
       .with(anything, anything)
-      .and_return(TenThousandFeet.empty_project_users_response)
+      .and_return(TenThousandFeetStubs.empty_project_users_response)
   end
 
   def self.empty_leave_types_response

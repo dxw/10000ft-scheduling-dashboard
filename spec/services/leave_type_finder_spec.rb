@@ -15,7 +15,7 @@ RSpec.describe LeaveTypeFinder, type: :service do
 
     it 'gets leave types from the scheduling API' do
       expect(client).to receive(:get_leave_types)
-        .and_return(TenThousandFeet.leave_types_response(project_id: 123, name: 'Sick'))
+        .and_return(TenThousandFeetStubs.leave_types_response(project_id: 123, name: 'Sick'))
 
       result = described_class.call
 
@@ -28,7 +28,7 @@ RSpec.describe LeaveTypeFinder, type: :service do
     context 'when there are no leave types found' do
       it 'returns an empty array' do
         expect(client).to receive(:get_leave_types)
-          .and_return(TenThousandFeet.empty_leave_types_response)
+          .and_return(TenThousandFeetStubs.empty_leave_types_response)
 
         result = described_class.call
 

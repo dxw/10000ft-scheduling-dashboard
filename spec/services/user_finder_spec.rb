@@ -15,7 +15,7 @@ RSpec.describe UserFinder, type: :service do
 
     it 'gets users from the scheduling API' do
       expect(client).to receive(:get_users)
-        .and_return(TenThousandFeet.user_response(user_id: 123, first_name: 'Sick'))
+        .and_return(TenThousandFeetStubs.user_response(user_id: 123, first_name: 'Sick'))
 
       result = described_class.call
 
@@ -28,7 +28,7 @@ RSpec.describe UserFinder, type: :service do
     context 'when there are no leave types found' do
       it 'returns an empty array' do
         expect(client).to receive(:get_users)
-          .and_return(TenThousandFeet.empty_user_response)
+          .and_return(TenThousandFeetStubs.empty_user_response)
 
         result = described_class.call
 

@@ -14,7 +14,7 @@ RSpec.describe ProjectFinder, type: :service do
     end
 
     it 'gets projects from the scheduling API' do
-      expect(client).to receive(:get_projects).and_return(TenThousandFeet.project_response(project_id: 1724065, name: 'Essex'))
+      expect(client).to receive(:get_projects).and_return(TenThousandFeetStubs.project_response(project_id: 1724065, name: 'Essex'))
 
       result = described_class.call
 
@@ -26,7 +26,7 @@ RSpec.describe ProjectFinder, type: :service do
 
     context 'when there are no projects found' do
       it 'returns an empty array' do
-        allow(client).to receive(:get_projects).and_return(TenThousandFeet.empty_project_response)
+        allow(client).to receive(:get_projects).and_return(TenThousandFeetStubs.empty_project_response)
 
         result = described_class.call
 

@@ -13,7 +13,7 @@ RSpec.feature 'View the daily schedule' do
 
   scenario 'when there are no projects' do
     allow(client).to receive(:get_projects)
-      .and_return(TenThousandFeet.empty_project_response)
+      .and_return(TenThousandFeetStubs.empty_project_response)
 
     visit root_path
 
@@ -22,11 +22,11 @@ RSpec.feature 'View the daily schedule' do
 
   scenario 'there are assignments for a project' do
     allow(client).to receive(:get_projects)
-      .and_return(TenThousandFeet.project_response(project_id: 123, name: 'a-project-name'))
+      .and_return(TenThousandFeetStubs.project_response(project_id: 123, name: 'a-project-name'))
     allow(client).to receive(:get_assignments)
-      .and_return(TenThousandFeet.assignment_response(project_id: 123, user_id: 'user-id'))
+      .and_return(TenThousandFeetStubs.assignment_response(project_id: 123, user_id: 'user-id'))
     allow(client).to receive(:get_users)
-      .and_return(TenThousandFeet.user_response(user_id: 'user-id', first_name: 'first-name'))
+      .and_return(TenThousandFeetStubs.user_response(user_id: 'user-id', first_name: 'first-name'))
 
     visit root_path
 
@@ -38,9 +38,9 @@ RSpec.feature 'View the daily schedule' do
 
   scenario 'no assignments are on a project' do
     allow(client).to receive(:get_projects)
-      .and_return(TenThousandFeet.project_response(name: 'a-project-name'))
+      .and_return(TenThousandFeetStubs.project_response(name: 'a-project-name'))
     allow(client).to receive(:get_assignments)
-      .and_return(TenThousandFeet.empty_assignment_response)
+      .and_return(TenThousandFeetStubs.empty_assignment_response)
 
     visit root_path
 
@@ -49,7 +49,7 @@ RSpec.feature 'View the daily schedule' do
 
   scenario 'users without any assignments' do
     allow(client).to receive(:get_users)
-      .and_return(TenThousandFeet.user_response(first_name: 'first-name'))
+      .and_return(TenThousandFeetStubs.user_response(first_name: 'first-name'))
 
     visit root_path
 
@@ -61,11 +61,11 @@ RSpec.feature 'View the daily schedule' do
 
   scenario 'users are on holiday' do
     allow(client).to receive(:get_leave_types)
-      .and_return(TenThousandFeet.leave_types_response(project_id: 123, name: 'Holiday'))
+      .and_return(TenThousandFeetStubs.leave_types_response(project_id: 123, name: 'Holiday'))
     allow(client).to receive(:get_assignments)
-      .and_return(TenThousandFeet.assignment_response(project_id: 123, user_id: 456, ))
+      .and_return(TenThousandFeetStubs.assignment_response(project_id: 123, user_id: 456, ))
     allow(client).to receive(:get_users)
-      .and_return(TenThousandFeet.user_response(user_id: 456, first_name: 'first-name'))
+      .and_return(TenThousandFeetStubs.user_response(user_id: 456, first_name: 'first-name'))
 
     visit root_path
 
