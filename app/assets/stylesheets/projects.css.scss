@@ -56,12 +56,10 @@ $oncall_with_alpha: rgba(28, 164, 222, 0.25);
           order: 100;
 }
 
-.holiday img,
-.holiday .initials,
-.holiday .first-name,
-.sick img,
-.sick .initials,
-.sick .first-name {
+
+.leave img,
+.leave .initials,
+.leave .first-name {
   filter: grayscale(100%);
   opacity: 0.5;
 }
