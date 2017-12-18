@@ -19,15 +19,17 @@
       var target = document.getElementsByClassName('projects')[0];
       var screen = document.getElementsByClassName('screen')[0];
 
-      fit(
-        target,
-        screen,
-        {
-          cover: false,
-          hAlign: fit.CENTER,
-          vAlign: fit.TOP,
-          watch: true,
-          apply: true
-        }
-      );
+      setTimeout(function() {
+        fit(
+          target,
+          screen,
+          {
+            cover: false,
+            hAlign: fit.CENTER,
+            vAlign: fit.TOP,
+            watch: true,
+            apply: true
+          }
+        );
+      }, 5000);
     });
