@@ -1,4 +1,4 @@
-class User < SimpleDelegator
+class User
   attr_reader :id,
               :first_name,
               :display_name,

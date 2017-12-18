@@ -1,4 +1,4 @@
-class Project < SimpleDelegator
+class Project
   attr_reader :id,
               :name,
               :state

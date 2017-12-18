@@ -1,4 +1,4 @@
-class Assignment < SimpleDelegator
+class Assignment
   attr_reader :project_id,
               :user_id,
               :starts_at,

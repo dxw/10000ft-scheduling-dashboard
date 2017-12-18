@@ -1,4 +1,4 @@
-class LeaveType < SimpleDelegator
+class LeaveType
   attr_reader :id, :name
 
   def initialize(args = {})
