@@ -31,5 +31,10 @@ module SchedulingDashboardRuby
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.autoload_paths += %W(#{config.root}/lib)
+
+    if ENV['IFRAME_ALLOW_ORIGIN'].present?
+      config.action_dispatch.default_headers.merge!(
+        'X-Frame-Options' => "Allow-From #{ENV['IFRAME_ALLOW_ORIGIN']}")
+    end
   end
 end
