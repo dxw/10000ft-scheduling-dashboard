@@ -1,5 +1,5 @@
 class SchedulesController < ApplicationController
   def index
-    @facade = TodayScheduleFacade.new
+    @schedule = TodayScheduleFacade.new
   end
 end

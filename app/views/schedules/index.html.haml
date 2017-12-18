@@ -1,20 +1,20 @@
 %div.screen
   %div.projects
-    - if @facade.projects.empty?
+    - if @schedule.projects.empty?
       %div
         = I18n.t('errors.projects.missing')
     - else
-      - @facade.projects.each do |project|
-        - project_assignments = project.assignments(assignments: @facade.todays_assignments)
+      - @schedule.projects.each do |project|
+        - project_assignments = project.assignments(assignments: @schedule.todays_assignments)
 
         - if project_assignments.present?
-          = render 'project', project: project, assignments: project_assignments, users: @facade.users
+          = render 'project', project: project, assignments: project_assignments, users: @schedule.users
 
-    - if @facade.holiday_assignments.present?
-      = render 'project', project: Project.new(name: 'Holiday', project_state: 'leave'), assignments: @facade.holiday_assignments, users: @facade.users
+    - if @schedule.holiday_assignments.present?
+      = render 'project', project: Project.new(name: 'Holiday', project_state: 'leave'), assignments: @schedule.holiday_assignments, users: @schedule.users
 
-    - if @facade.sick_assignments.present?
-      = render 'project', project: Project.new(name: 'Sick', project_state: 'leave'), assignments: @facade.sick_assignments, users: @facade.users
+    - if @schedule.sick_assignments.present?
+      = render 'project', project: Project.new(name: 'Sick', project_state: 'leave'), assignments: @schedule.sick_assignments, users: @schedule.users
 
-    - if @facade.users_without_assignments.present?
-      = render 'unassigned_users', users: @facade.users_without_assignments
+    - if @schedule.users_without_assignments.present?
+      = render 'unassigned_users', users: @schedule.users_without_assignments
