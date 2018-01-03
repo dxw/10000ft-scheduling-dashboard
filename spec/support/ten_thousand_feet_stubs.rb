@@ -182,7 +182,7 @@ module TenThousandFeetStubs
     }
   end
 
-  def self.assignment_response(project_id: 8370190, user_id: 389604, starts_at: '2017-12-11', ends_at: '2017-12-19')
+  def self.assignment_response(project_id: 8370190, user_id: 389604, starts_at: '2017-12-11', ends_at: '2050-12-19')
     {"paging"=>
     {"per_page"=>20,
      "page"=>1,
