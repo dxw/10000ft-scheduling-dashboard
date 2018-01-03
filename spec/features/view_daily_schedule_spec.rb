@@ -31,7 +31,7 @@ RSpec.feature 'View the daily schedule' do
     visit root_path
 
     within('.a-project-name') do
-      expect(page).to have_content('A Project Name')
+      expect(page).to have_content('a-project-name')
       expect(page).to have_content('first-name')
     end
   end
@@ -113,7 +113,7 @@ RSpec.feature 'View the daily schedule' do
     visit root_path
 
     within('.a-project-name') do
-      expect(page).to have_content('A Project Name')
+      expect(page).to have_content('a-project-name')
       expect(page).to have_content('first-name')
       expect(page).to have_css("li[data-tags='contractor']")
     end
