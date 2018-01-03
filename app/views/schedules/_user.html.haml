@@ -1,3 +1,7 @@
-%div
-  = image_tag(user.thumbnail, class: 'img')
-  %h3.first-name= user.first_name
+%li.member{ data: { user_name: user.display_name.parameterize, tags: display_tags(user: user) } }
+  %div
+    %div.triangle-overlay-background
+    %div.triangle-overlay
+
+    = image_tag(user.thumbnail, class: 'img')
+    %h3.first-name= nickname(user: user)

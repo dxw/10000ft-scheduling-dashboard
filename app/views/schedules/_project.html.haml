@@ -3,5 +3,4 @@
   %ul.team-members
     - assignments.each do |assignment|
       - user = users.detect{ |user| user.id == assignment.user_id }
-      %li.member{ data: { user_name: user.display_name.parameterize } }
-        = render 'user', user: user
+      = render 'user', user: user

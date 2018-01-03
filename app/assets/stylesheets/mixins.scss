@@ -1,0 +1,43 @@
+@mixin triangle-overlay($background-color) {
+  .triangle-overlay-background {
+    width: 35%;
+    padding-bottom: 24%;
+    position: absolute;
+    overflow: hidden;
+    right: 0px;
+    top: 0px;
+  }
+
+  .triangle-overlay-background:before {
+    content: '';
+    position: absolute;
+    top: -32px;
+    left: 15px;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    transform-origin: 0 100%;
+    transform: rotate(45deg);
+  }
+
+  .triangle-overlay {
+    width: 35%;
+    padding-bottom: 24%;
+    position: absolute;
+    overflow: hidden;
+    right: 0px;
+    top: 0px;
+  }
+
+  .triangle-overlay:before {
+    content: '';
+    position: absolute;
+    top: -32px;
+    left: 15px;
+    width: 100%;
+    height: 100%;
+    background: $background-color;
+    transform-origin: 0 100%;
+    transform: rotate(45deg);
+  }
+}

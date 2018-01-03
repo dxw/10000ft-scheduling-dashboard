@@ -30,8 +30,15 @@
   margin-bottom: 1.5em;
 }
 
-.holiday .member img {
+.leave .member img {
   height: 100px;
+}
+
+.leave img,
+.leave .initials,
+.leave .first-name {
+  filter: grayscale(100%);
+  opacity: 0.5;
 }
 
 .member .first-name {
@@ -49,4 +56,24 @@
   font-weight: 600;
   font-size: 1em;
   line-height: 1.5em;
+}
+
+.project.confirmed li[data-tags="contractor"] {
+  @include triangle-overlay($confirmed);
+}
+
+.project.internal li[data-tags="contractor"] {
+  @include triangle-overlay($internal);
+}
+
+.project.tentative li[data-tags="contractor"] {
+  @include triangle-overlay($tentative);
+}
+
+.project.leave li[data-tags="contractor"] {
+  @include triangle-overlay($leave);
+}
+
+.project.unassigned li[data-tags="contractor"] {
+  @include triangle-overlay($unassigned);
 }

@@ -129,7 +129,7 @@ module TenThousandFeetStubs
      "data"=>[]}
   end
 
-  def self.user_response(user_id: 387517, first_name: 'Hippers')
+  def self.user_response(user_id: 123, first_name: 'Alex')
     {"paging"=>
     {"per_page"=>20,
     "page"=>1,
@@ -167,8 +167,24 @@ module TenThousandFeetStubs
       "has_login"=>true,
       "login_type"=>"default",
       "archived_at"=>nil,
+      "tags"=>{
+        "paging"=>{
+          "self"=>"/api/v1/users/#{user_id}/tags?per_page=500&page=1", "next"=>nil, "previous"=>nil, "page"=>1, "per_page"=>500
+        },
+        "data"=>[]
+        },
       "thumbnail"=>"https://yyy.cloudfront.net/xxx/xxx.jpg"}]
     }
+  end
+
+  def self.user_response_with_tags(user_id:, first_name:, tags: [])
+    default_user_response = user_response(user_id: user_id, first_name: first_name)
+
+    tags.map do |tag|
+      default_user_response['data'].first['tags']['data'] << {"id"=>2633313, "value"=>tag}
+    end
+
+    default_user_response
   end
 
   def self.empty_assignment_response
@@ -182,7 +198,7 @@ module TenThousandFeetStubs
     }
   end
 
-  def self.assignment_response(project_id: 8370190, user_id: 389604, starts_at: '2017-12-11', ends_at: '2017-12-19')
+  def self.assignment_response(project_id: 8370190, user_id: 389604, starts_at: '2017-12-11', ends_at: '2050-12-19')
     {"paging"=>
     {"per_page"=>20,
      "page"=>1,
