@@ -129,7 +129,7 @@ module TenThousandFeetStubs
      "data"=>[]}
   end
 
-  def self.user_response(user_id: 387517, first_name: 'Hippers')
+  def self.user_response(user_id: 123, first_name: 'Alex')
     {"paging"=>
     {"per_page"=>20,
     "page"=>1,
