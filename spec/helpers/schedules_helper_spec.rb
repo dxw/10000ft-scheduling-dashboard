@@ -40,4 +40,22 @@ RSpec.describe SchedulesHelper, type: :helper do
       end
     end
   end
+
+  describe 'nickname' do
+    context 'when the user ID is NOT on our whitelist' do
+      it 'returns their first name' do
+        user = User.new(id: 123, first_name: 'foo')
+        result = nickname(user: user)
+        expect(result).to eq('foo')
+      end
+    end
+
+    context 'when the user ID is on our whitelist' do
+      it 'returns the nickname instead of their first name' do
+        user = User.new(id: 387517, first_name: 'foo')
+        result = nickname(user: user)
+        expect(result).to eq('hippers')
+      end
+    end
+  end
 end

@@ -90,4 +90,15 @@ RSpec.feature 'View the daily schedule' do
       expect(page).to have_content('first-name')
     end
   end
+
+  scenario 'user has a nickname' do
+    allow(client).to receive(:get_assignments)
+      .and_return(TenThousandFeetStubs.assignment_response(project_id: 123, user_id: 456))
+    allow(client).to receive(:get_users)
+      .and_return(TenThousandFeetStubs.user_response(user_id: 387517, first_name: 'first-name'))
+
+    visit root_path
+
+    expect(page).to have_content('hippers')
+  end
 end
