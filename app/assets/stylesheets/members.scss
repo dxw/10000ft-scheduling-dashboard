@@ -59,17 +59,21 @@
 }
 
 .project.confirmed li[data-tags="contractor"] {
-  @include triangle-overlay($confirmed_with_alpha);
+  @include triangle-overlay($confirmed);
 }
 
 .project.internal li[data-tags="contractor"] {
-  @include triangle-overlay($internal_with_alpha);
+  @include triangle-overlay($internal);
 }
 
 .project.tentative li[data-tags="contractor"] {
-  @include triangle-overlay($confirmed_with_alpha);
+  @include triangle-overlay($tentative);
 }
 
 .project.leave li[data-tags="contractor"] {
-  @include triangle-overlay($leave_with_alpha);
+  @include triangle-overlay($leave);
+}
+
+.project.unassigned li[data-tags="contractor"] {
+  @include triangle-overlay($unassigned);
 }
