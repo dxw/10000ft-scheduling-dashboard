@@ -58,4 +58,30 @@ RSpec.describe SchedulesHelper, type: :helper do
       end
     end
   end
+
+  describe 'display_tags' do
+    context 'when the user has NO tags' do
+      it 'returns nil' do
+        user = OpenStruct.new(tags: [])
+        result = display_tags(user: user)
+        expect(result).to eq('')
+      end
+    end
+
+    context 'when the user DOES have a tag' do
+      it 'returns the tag as a lower case string' do
+        user = OpenStruct.new(tags: ['contractor'])
+        result = display_tags(user: user)
+        expect(result).to eq('contractor')
+      end
+    end
+
+    context 'when the user has multiple tags' do
+      it 'returns them all as a joined list of ' do
+        user = OpenStruct.new(tags: ['contractor', 'rails'])
+        result = display_tags(user: user)
+        expect(result).to eq('contractor, rails')
+      end
+    end
+  end
 end

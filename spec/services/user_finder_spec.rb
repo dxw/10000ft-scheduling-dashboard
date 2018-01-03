@@ -9,7 +9,7 @@ RSpec.describe UserFinder, type: :service do
     end
 
     it 'requests all users by default' do
-      expect(client).to receive(:get_users).with(per_page: 500)
+      expect(client).to receive(:get_users).with(per_page: 500, fields: 'tags')
       described_class.call
     end
 

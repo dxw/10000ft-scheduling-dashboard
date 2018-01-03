@@ -101,4 +101,21 @@ RSpec.feature 'View the daily schedule' do
 
     expect(page).to have_content('hippers')
   end
+
+  scenario 'user is has a contractor tag' do
+    allow(client).to receive(:get_projects)
+      .and_return(TenThousandFeetStubs.project_response(project_id: 123, name: 'a-project-name'))
+    allow(client).to receive(:get_assignments)
+      .and_return(TenThousandFeetStubs.assignment_response(project_id: 123, user_id: 'user-id'))
+    allow(client).to receive(:get_users)
+      .and_return(TenThousandFeetStubs.user_response_with_tags(user_id: 'user-id', first_name: 'first-name', tags: ['Contractor']))
+
+    visit root_path
+
+    within('.a-project-name') do
+      expect(page).to have_content('A Project Name')
+      expect(page).to have_content('first-name')
+      expect(page).to have_css("li[data-tags='contractor']")
+    end
+  end
 end

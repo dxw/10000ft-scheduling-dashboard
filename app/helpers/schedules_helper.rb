@@ -21,4 +21,8 @@ module SchedulesHelper
     else user.first_name
     end
   end
+
+  def display_tags(user:)
+    user.tags.join(', ')
+  end
 end
