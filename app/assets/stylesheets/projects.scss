@@ -105,6 +105,15 @@
   background-color: $confirmed;
 }
 
+.project.tentative {
+  border-color: $tentative;
+  background-color: $tentative_with_alpha;
+}
+
+.project.tentative h2 {
+  background-color: $tentative;
+}
+
 .project.oncall {
   border-color: $oncall;
   background-color: $oncall_with_alpha;

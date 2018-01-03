@@ -4,6 +4,7 @@ module SchedulesHelper
     classes << project.name.parameterize
     classes << 'internal' if project.internal?
     classes << 'confirmed' if project.confirmed?
+    classes << 'tentative' if project.tentative?
     classes << 'oncall' if project.oncall?
     classes << 'leave' if project.leave?
     classes.join(' ')

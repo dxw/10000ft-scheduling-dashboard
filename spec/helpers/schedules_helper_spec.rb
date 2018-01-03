@@ -24,6 +24,14 @@ RSpec.describe SchedulesHelper, type: :helper do
       end
     end
 
+    context 'when the project is tentative' do
+      it 'adds the tentative class' do
+        project = Project.new(name: 'foo-bar', project_state: 'tentative')
+        result = project_classes(project: project)
+        expect(result).to eq('foo-bar tentative')
+      end
+    end
+
     context 'when the project is oncall' do
       it 'adds the oncall class' do
         project = Project.new(name: 'on call')
