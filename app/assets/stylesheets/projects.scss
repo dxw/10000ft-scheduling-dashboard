@@ -1,14 +1,3 @@
-$internal: rgb(129, 88, 189);
-$internal_with_alpha: rgba(129, 88, 189, 0.25);
-$confirmed: rgb(0, 163, 221);
-$confirmed_with_alpha: rgba(0, 163, 221, 0.25);
-$leave: rgb(250, 100, 0);
-$leave_with_alpha: rgba(250, 100, 0, 0.25);
-$unassigned: rgb(70, 70, 70);
-$unassigned_with_alpha: rgba(70, 70, 70, 0.25);
-$oncall: rgb(28, 164, 222);
-$oncall_with_alpha: rgba(28, 164, 222, 0.25);
-
 .project {
   background-color: #4c535a;
   flex-grow: 3;

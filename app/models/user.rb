@@ -22,6 +22,6 @@ class User
   end
 
   private def default_thumbnail
-    'anon.jpg'
+    'anon.png'
   end
 end

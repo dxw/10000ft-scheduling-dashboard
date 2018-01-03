@@ -57,3 +57,19 @@
   font-size: 1em;
   line-height: 1.5em;
 }
+
+.project.confirmed li[data-tags="contractor"] {
+  @include triangle-overlay($confirmed_with_alpha);
+}
+
+.project.internal li[data-tags="contractor"] {
+  @include triangle-overlay($internal_with_alpha);
+}
+
+.project.tentative li[data-tags="contractor"] {
+  @include triangle-overlay($confirmed_with_alpha);
+}
+
+.project.leave li[data-tags="contractor"] {
+  @include triangle-overlay($leave_with_alpha);
+}
