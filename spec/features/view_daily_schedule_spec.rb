@@ -63,7 +63,7 @@ RSpec.feature 'View the daily schedule' do
     allow(client).to receive(:get_leave_types)
       .and_return(TenThousandFeetStubs.leave_types_response(project_id: 123, name: 'Holiday'))
     allow(client).to receive(:get_assignments)
-      .and_return(TenThousandFeetStubs.assignment_response(project_id: 123, user_id: 456, ))
+      .and_return(TenThousandFeetStubs.assignment_response(project_id: 123, user_id: 456))
     allow(client).to receive(:get_users)
       .and_return(TenThousandFeetStubs.user_response(user_id: 456, first_name: 'first-name'))
 
