@@ -56,14 +56,6 @@ $oncall_with_alpha: rgba(28, 164, 222, 0.25);
           order: 100;
 }
 
-
-.leave img,
-.leave .initials,
-.leave .first-name {
-  filter: grayscale(100%);
-  opacity: 0.5;
-}
-
 .project .initials {
   height: auto;
   display: inline-block;
