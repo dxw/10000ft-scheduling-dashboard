@@ -1,5 +1,5 @@
 %div.project{ class: project_classes(project: project) }
-  %h2= project.name.downcase.titleize
+  %h2= project.name
   %ul.team-members
     - assignments.each do |assignment|
       - user = users.detect{ |user| user.id == assignment.user_id }
