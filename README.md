@@ -1,3 +1,5 @@
+[ ![Codeship Status for dxw/10000ft-scheduling-dashboard](https://app.codeship.com/projects/1ab21990-d39b-0135-2a90-42740a1f2756/status?branch=develop)](https://app.codeship.com/projects/262842)
+
 10000ft Scheduling Dashboard
 ================
 
