@@ -5,6 +5,16 @@ A dashboard for [10000ft](https://www.10000ft.com/) using their [API](https://gi
 
 ![alt text](../master/app/assets/images/example2.png?raw=true)
 
+## Usage
+
+### Distinguish contractors
+In 10,000ft add a `tag` to a person called `contractor` and their thumbnail will have a coloured triangle. eg:
+
+![alt text](../master/app/assets/images/example-contractor.jpg?raw=true)
+
+### Hide people
+In 10,000ft add a `tag` to a person called `hide-from-dashboard` and they will be hidden from the dashboard.
+
 ## Setup
 
 The project is built to run through Docker via Docker Compose.
@@ -43,13 +53,3 @@ docker-compose rm app
 docker rmi thedxw/10000ft-scheduling-dashboard:latest
 docker-compose up -d app
 ```
-
-## Usage
-
-### Distinguish contractors
-In 10,000ft add a `tag` to a person called `contractor` and their thumbnail will have a coloured triangle. eg:
-
-![alt text](../master/app/assets/images/example-contractor.jpg?raw=true)
-
-### Hide people
-In 10,000ft add a `tag` to a person called `hide-from-dashboard` and they will be hidden from the dashboard.
