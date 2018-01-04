@@ -3,7 +3,7 @@
 
 A dashboard for [10000ft](https://www.10000ft.com/) using their [API](https://github.com/10Kft/10kft-api).
 
-![alt text](../master/app/assets/images/example.png?raw=true)
+![alt text](../master/app/assets/images/example2.png?raw=true)
 
 ## Setup
 
