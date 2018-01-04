@@ -15,6 +15,10 @@ class User
     @tags = extract_tags(args)
   end
 
+  def blacklisted?
+    tags.include?('hide-from-dashboard')
+  end
+
   private def extract_tags(args)
     tags = args[:tags]
     return [] unless tags && tags['data']

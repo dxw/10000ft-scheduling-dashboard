@@ -35,5 +35,16 @@ RSpec.describe UserFinder, type: :service do
         expect(result).to eq([])
       end
     end
+
+    context 'when a user is blacklisted' do
+      it 'does not return it' do
+        expect(client).to receive(:get_users)
+          .and_return(TenThousandFeetStubs.user_response_with_tags(tags: ['hide-from-dashboard']))
+
+        result = described_class.call
+
+        expect(result).to eq([])
+      end
+    end
   end
 end
