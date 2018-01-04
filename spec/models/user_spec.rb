@@ -37,4 +37,14 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe '#blacklisted?' do
+    context 'when the tag is "hide-from-dashboard"' do
+      it 'returns true' do
+        user = User.new(tags: { 'data' => [{ 'value' => 'hide-from-dashboard' }] })
+        result = user.blacklisted?
+        expect(result).to eq(true)
+      end
+    end
+  end
 end

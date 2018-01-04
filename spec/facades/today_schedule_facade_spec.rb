@@ -17,7 +17,7 @@ RSpec.describe TodayScheduleFacade, type: :facade do
 
   describe '#todays_assignments' do
     it 'returns Assignment objects' do
-      users = double
+      users = [double]
       expect(UserFinder).to receive(:call).and_return(users)
 
       assignment = Assignment.new

@@ -177,7 +177,7 @@ module TenThousandFeetStubs
     }
   end
 
-  def self.user_response_with_tags(user_id:, first_name:, tags: [])
+  def self.user_response_with_tags(user_id: nil, first_name: nil, tags: [])
     default_user_response = user_response(user_id: user_id, first_name: first_name)
 
     tags.map do |tag|
