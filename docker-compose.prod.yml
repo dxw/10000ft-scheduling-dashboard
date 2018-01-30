@@ -1,0 +1,22 @@
+version: "2"
+services:
+  app:
+    image: 185831895836.dkr.ecr.us-east-1.amazonaws.com/10000ftschedulingdashboard_app
+    command: "bundle exec puma"
+    user: root
+    env_file:
+      - docker-compose.env
+    ports:
+      - 3000:3000
+    restart: on-failure
+    networks:
+      - public
+    logging:
+        driver: awslogs
+        options:
+          awslogs-group: scheduling-dashboard
+          awslogs-region: us-east-1
+          awslogs-stream-prefix: scheduling-dashboard
+
+networks:
+  public:
