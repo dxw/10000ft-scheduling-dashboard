@@ -1,6 +1,6 @@
 version: 1
 task_definition:
-  ecs_network_mode: awsvpc
+  ecs_network_mode: bridge
   task_role_arn: arn:aws:iam::185831895836:role/ecsTaskExecutionRole
   task_execution_role: arn:aws:iam::185831895836:role/ecsTaskExecutionRole
   task_size:
@@ -13,8 +13,7 @@ run_params:
   network_configuration:
     awsvpc_configuration:
       subnets:
-        - subnet-a7ea9a88
-        - subnet-d58db49e
+        - subnet-98c022fe
+        - subnet-7139ca39
       security_groups:
-        - sg-d48b5ba3
-      assign_public_ip: ENABLED
+        - sg-f66d968c
