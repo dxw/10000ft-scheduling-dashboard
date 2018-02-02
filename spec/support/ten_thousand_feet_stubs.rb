@@ -73,7 +73,7 @@ module TenThousandFeetStubs
      "data"=>[]}
    end
 
-  def self.project_response(project_id: 8370190, name: 'NHS')
+  def self.project_response(project_id: 8370190, name: 'NHS', phase_name: nil)
     {"paging"=>
       {"per_page"=>20,
        "page"=>1,
@@ -89,7 +89,7 @@ module TenThousandFeetStubs
         "guid"=>"45354fc3-c379-4b61-bd12-5934f7d04796",
         "name"=>name,
         "parent_id"=>nil,
-        "phase_name"=>nil,
+        "phase_name"=>phase_name,
         "project_code"=>"",
         "secureurl"=>nil,
         "secureurl_expiration"=>nil,

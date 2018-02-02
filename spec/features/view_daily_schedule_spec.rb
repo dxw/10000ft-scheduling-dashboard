@@ -118,4 +118,20 @@ RSpec.feature 'View the daily schedule' do
       expect(page).to have_css("li[data-tags='contractor']")
     end
   end
+
+  scenario 'user is on a phase of a project' do
+    allow(client).to receive(:get_projects)
+      .and_return(TenThousandFeetStubs.project_response(project_id: 123, name: 'a-project-name', phase_name: 'alpha'))
+    allow(client).to receive(:get_assignments)
+      .and_return(TenThousandFeetStubs.assignment_response(project_id: 123, user_id: 'user-id'))
+    allow(client).to receive(:get_users)
+      .and_return(TenThousandFeetStubs.user_response(user_id: 'user-id', first_name: 'first-name'))
+
+    visit root_path
+
+    within('.a-project-name') do
+      expect(page).to have_content('a-project-name - alpha')
+      expect(page).to have_content('first-name')
+    end
+  end
 end
