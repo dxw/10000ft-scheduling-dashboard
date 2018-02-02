@@ -9,7 +9,12 @@ RSpec.describe ProjectFinder, type: :service do
     end
 
     it 'requests all projects by default' do
-      expect(client).to receive(:get_projects).with(per_page: 500)
+      expect(client).to receive(:get_projects).with(a_hash_including(per_page: 500))
+      described_class.call
+    end
+
+    it 'requests all phases (children of projects) by default' do
+      expect(client).to receive(:get_projects).with(a_hash_including(with_phases: true))
       described_class.call
     end
 
