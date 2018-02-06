@@ -92,4 +92,18 @@ RSpec.describe SchedulesHelper, type: :helper do
       end
     end
   end
+
+  describe 'project_description' do
+    it 'returns the name of the project' do
+      result = project_description(project: Project.new(name: 'foo'))
+      expect(result).to eq('foo')
+    end
+
+    context 'when the project is a phase (child project)' do
+      it 'returns both name and child name' do
+        result = project_description(project: Project.new(name: 'baz', phase_name: 'bar'))
+        expect(result).to eq('baz - bar')
+      end
+    end
+  end
 end

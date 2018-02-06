@@ -26,4 +26,9 @@ module SchedulesHelper
   def display_tags(user:)
     user.tags.join(', ')
   end
+
+  def project_description(project:)
+    return project.name unless project.phase_name
+    "#{project.name} - #{project.phase_name}"
+  end
 end

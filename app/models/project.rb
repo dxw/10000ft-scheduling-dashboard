@@ -1,7 +1,8 @@
 class Project
   attr_reader :id,
               :name,
-              :state
+              :state,
+              :phase_name
 
   def initialize(args = {})
     args = args.symbolize_keys if args
@@ -9,6 +10,7 @@ class Project
     @id = args[:id]
     @name = args[:name]
     @state = args[:project_state]
+    @phase_name = args[:phase_name]
   end
 
   # Assignments are passed in because the only way to get
