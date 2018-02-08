@@ -37,9 +37,9 @@ USER app
 # bundle ruby gems based on the current environment, default to production
 RUN \
   if [ "$RAILS_ENV" = "production" ]; then \
-    bundle install --without development test --jobs 25 --retry 3; \
+    bundle install --without development test --retry 10; \
   else \
-    bundle install --jobs 25 --retry 3; \
+    bundle install --retry 10; \
   fi
 
 USER root
