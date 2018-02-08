@@ -1,13 +1,13 @@
 version: "2"
 services:
   app:
-    image: 185831895836.dkr.ecr.us-east-1.amazonaws.com/10000ftschedulingdashboard_app
+    image: 185831895836.dkr.ecr.eu-west-1.amazonaws.com/scheduling-dashboard:latest
     command: "bundle exec puma"
     user: root
     env_file:
       - docker-compose.env
     ports:
-      - 80:3000
+      - 0:3000
     restart: on-failure
     networks:
       - public
