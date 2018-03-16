@@ -85,7 +85,7 @@ RSpec.feature 'View the daily schedule' do
 
     visit root_path
 
-    within('.sick') do
+    within('.leave') do
       expect(page).to have_content('Sick')
       expect(page).to have_content('first-name')
     end

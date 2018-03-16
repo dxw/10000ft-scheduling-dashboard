@@ -15,16 +15,15 @@ class TodayScheduleFacade
     @leave_types ||= LeaveTypeFinder.call
   end
 
-  def holiday_assignments
-    holiday = leave_types.detect{ |leave_type| leave_type.name.eql?('Holiday') }
-    return [] unless holiday
-    @holiday_assignments ||= todays_assignments.select{ |assignment| holiday.id == assignment.project_id }
-  end
+  def ooo_assignments
+    return [] unless leave_types
 
-  def sick_assignments
-    sick = leave_types.detect{ |leave_type| leave_type.name.eql?('Sick') }
-    return [] unless sick
-    @sick_assignments ||= todays_assignments.select{ |assignment| sick.id == assignment.project_id }
+    leave_types.inject({}) do |assignments, leave_type|
+      matching_assignments = todays_assignments.select { |assignment| leave_type.id == assignment.project_id }
+      next assignments if matching_assignments.empty?
+
+      assignments.merge!(leave_type.name => matching_assignments)
+    end
   end
 
   def users_without_assignments

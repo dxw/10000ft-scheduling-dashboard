@@ -33,8 +33,7 @@
   -webkit-box-ordinal-group: 0;
 }
 
-.holiday,
-.sick {
+.leave {
   -moz-order: 100;
   -ms-order: 100;
   -o-order: 100;
@@ -76,14 +75,12 @@
   background-color: $internal;
 }
 
-.project.holiday,
-.project.sick {
+.project.leave {
   border-color: $leave;
   background-color: $leave_with_alpha;
 }
 
-.project.holiday h2,
-.project.sick h2 {
+.project.leave h2 {
   background-color: $leave;
 }
 
