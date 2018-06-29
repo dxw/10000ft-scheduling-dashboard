@@ -36,7 +36,7 @@ bin/dspec
 
 ## Developing
 
-Get started with an interactive prompt for debugging via PRY.
+The [setup](#setup) steps will get you started but it will not come with an interactive prompt should you want to use a debugger such as [Pry](https://github.com/pry/pry). If you wish to use a debugger, we've included a script to achieve this that replaces the above `docker-compose` command:
 ```
 bin/dstart --build
 ```
