@@ -6,4 +6,4 @@ docker-compose up -d $@
 
 # Attach to the running container for an interactive terminal
 # (This will allow us to use Pry to debug)
-docker attach 10000ftschedulingdashboard_app_1
+docker attach 10000ft-scheduling-dashboard_app_1
