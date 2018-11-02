@@ -4,7 +4,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 ruby '2.4.2'
-gem 'rails', '~> 5.1.3'
+gem 'rails', '>= 5.1.3' # CVE-2018-3760
 gem 'rails-html-sanitizer', '~> 1.0.4' # CVE-2018-3741
 
 gem 'puma', '~> 3.7'
