@@ -12,10 +12,12 @@ module SchedulesHelper
 
   def nickname(user:)
     case user.id
+    when 478731 then 'chris l'
+    when 472497 then 'chris p'
+    when 478728 then 'chris r'
+    when 389584 then 'chris w'
     when 387517 then 'hippers'
     when 389616 then 'leeky'
-    when 389586 then 'duncan b'
-    when 389587 then 'duncan s'
     when 389599 then 'leanne c'
     when 389601 then 'leanne g'
     when 389614 then 'vee'

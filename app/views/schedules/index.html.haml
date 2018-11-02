@@ -10,11 +10,8 @@
         - if project_assignments.present?
           = render 'project', project: project, assignments: project_assignments, users: @schedule.users
 
-    - if @schedule.holiday_assignments.present?
-      = render 'project', project: Project.new(name: 'Holiday', project_state: 'leave'), assignments: @schedule.holiday_assignments, users: @schedule.users
-
-    - if @schedule.sick_assignments.present?
-      = render 'project', project: Project.new(name: 'Sick', project_state: 'leave'), assignments: @schedule.sick_assignments, users: @schedule.users
+    - @schedule.ooo_assignments.each_pair do |ooo_name, assignments|
+      = render 'project', project: Project.new(name: ooo_name, project_state: 'leave'), assignments: assignments, users: @schedule.users
 
     - if @schedule.users_without_assignments.present?
       = render 'unassigned_users', users: @schedule.users_without_assignments

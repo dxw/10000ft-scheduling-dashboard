@@ -56,27 +56,27 @@ RSpec.describe TodayScheduleFacade, type: :facade do
     end
   end
 
-  describe '#holiday_assignments' do
-    it 'returns only the assignments for the holiday leave type' do
+  describe '#ooo_assignments' do
+    it 'returns only the assignments for the given leave type' do
       holiday_leave_type = LeaveType.new(id: 123, name: 'Holiday')
       allow(LeaveTypeFinder).to receive(:call).and_return([holiday_leave_type])
 
       holiday_assignment = Assignment.new(project_id: 123)
       stub_assignment_finder(assignments: [holiday_assignment])
 
-      result = described_class.new.holiday_assignments
+      result = described_class.new.ooo_assignments
 
       expect(result.count).to eq(1)
-      expect(result.first).to eq(holiday_assignment)
+      expect(result.first).to eq(['Holiday', [holiday_assignment]])
     end
 
     context 'when there is no leave type' do
       it 'returns an empty array' do
         allow(LeaveTypeFinder).to receive(:call).and_return([])
 
-        result = described_class.new.holiday_assignments
+        result = described_class.new.ooo_assignments
 
-        expect(result).to eq([])
+        expect(result).to eq({})
       end
     end
 
@@ -86,46 +86,9 @@ RSpec.describe TodayScheduleFacade, type: :facade do
         allow(LeaveTypeFinder).to receive(:call).and_return([holiday_leave_type])
         stub_assignment_finder(assignments: [])
 
-        result = described_class.new.holiday_assignments
+        result = described_class.new.ooo_assignments
 
-        expect(result).to eq([])
-      end
-    end
-  end
-
-  describe '#sick_assignments' do
-    it 'returns only the assignments for the holiday leave type' do
-      sick_leave_type = LeaveType.new(id: 123, name: 'Sick')
-      allow(LeaveTypeFinder).to receive(:call).and_return([sick_leave_type])
-
-      sick_assignment = Assignment.new(project_id: 123)
-      stub_assignment_finder(assignments: [sick_assignment])
-
-      result = described_class.new.sick_assignments
-
-      expect(result.count).to eq(1)
-      expect(result.first).to eq(sick_assignment)
-    end
-
-    context 'when there is no leave type' do
-      it 'returns an empty array' do
-        allow(LeaveTypeFinder).to receive(:call).and_return([])
-
-        result = described_class.new.sick_assignments
-
-        expect(result).to eq([])
-      end
-    end
-
-    context 'when there are no assignments to holiday' do
-      it 'returns an empty array' do
-        sick_leave_type = LeaveType.new(id: 123, name: 'Sick')
-        allow(LeaveTypeFinder).to receive(:call).and_return([sick_leave_type])
-        stub_assignment_finder(assignments: [])
-
-        result = described_class.new.sick_assignments
-
-        expect(result).to eq([])
+        expect(result).to eq({})
       end
     end
   end
