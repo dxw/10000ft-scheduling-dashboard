@@ -43,15 +43,29 @@ bin/dstart --build
 
 ## Deployment
 
+The scheduling dashboard is currently deployed through [Dachshund](https://github.com/dxw/dachshund/blob/develop/README.md#deployment). The following instructions will need updating if this changes.
+
+You will need ssh access to the server running this container: `stats-2.prod.dxw.net`. Ask in the #developers channel on Slack.
+
 1. On your machine build a new Docker image and push it to a Docker repository:
 ```
 docker build . -t thedxw/10000ft-scheduling-dashboard:latest && docker push thedxw/10000ft-scheduling-dashboard:latest
 ```
 
-2. Log onto the server running this container and run the following:
+2. Log onto the server running this container and change to the `dachshund` directory:
+
+```
+ssh ubuntu@stats-2.prod.dxw.net
+sudo su # necessary because docker runs as root
+cd /home/tomh/dachshund # dachshund lives in @hippers's home directory
+```
+
+3. Run the following to stop the service, remove the old image, and restart the service with the new image:
 ```
 docker-compose stop scheduling-dashboard
 docker-compose rm scheduling-dashboard
 docker rmi thedxw/10000ft-scheduling-dashboard:latest
 docker-compose up -d scheduling-dashboard # will download and build the latest image
 ```
+
+You might have to wait a few seconds before the removing commands, so the service has time to stop.
