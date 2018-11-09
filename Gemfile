@@ -4,7 +4,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 ruby '2.4.2'
-gem 'rails', '~> 5.1.3'
+gem 'rails', '>= 5.1.3' # CVE-2018-3760
 gem 'rails-html-sanitizer', '~> 1.0.4' # CVE-2018-3741
 
 gem 'puma', '~> 3.7'
@@ -14,7 +14,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'ten_thousand_feet'
 gem 'nokogiri', '~> 1.8.2' # CVE-2017-18258
-gem 'loofah', '~> 2.2.1' # CVE-2018-8048
+gem 'loofah', '>= 2.2.3' # CVE-2018-16468 
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
