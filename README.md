@@ -5,14 +5,14 @@
 
 A dashboard for [10000ft](https://www.10000ft.com/) using their [API](https://github.com/10Kft/10kft-api).
 
-![alt text](../master/app/assets/images/example2.png?raw=true)
+![Generic dashboard with tiled view of projects, employees and contractors](../master/app/assets/images/example2.png?raw=true)
 
 ## Usage
 
 ### Distinguish contractors
 In 10,000ft add a `tag` to a person called `contractor` and their thumbnail will have a coloured triangle. eg:
 
-![alt text](../master/app/assets/images/example-contractor.jpg?raw=true)
+![Generic contractor image with triangle on top right](../master/app/assets/images/example-contractor.jpg?raw=true)
 
 ### Hide people
 In 10,000ft add a `tag` to a person called `hide-from-dashboard` and they will be hidden from the dashboard.
