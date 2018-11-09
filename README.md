@@ -50,8 +50,8 @@ docker build . -t thedxw/10000ft-scheduling-dashboard:latest && docker push thed
 
 2. Log onto the server running this container and run the following:
 ```
-docker-compose stop app
-docker-compose rm app
+docker-compose stop scheduling-dashboard
+docker-compose rm scheduling-dashboard
 docker rmi thedxw/10000ft-scheduling-dashboard:latest
-docker-compose up -d app
+docker-compose up -d scheduling-dashboard # will download and build the latest image
 ```
