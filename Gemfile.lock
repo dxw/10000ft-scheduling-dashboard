@@ -98,6 +98,9 @@ GEM
       ruby_parser (~> 3.5)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
+    httparty (0.16.3)
+      mime-types (~> 3.0)
+      multi_xml (>= 0.5.2)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
     interception (0.5)
@@ -127,6 +130,7 @@ GEM
     mini_portile2 (2.3.0)
     minitest (5.11.3)
     multi_json (1.12.2)
+    multi_xml (0.6.0)
     netrc (0.11.0)
     nio4r (2.3.1)
     nokogiri (1.8.5)
@@ -282,6 +286,7 @@ DEPENDENCIES
   faker
   haml-rails
   html2haml
+  httparty
   jbuilder (~> 2.5)
   jquery-rails
   launchy
@@ -312,4 +317,4 @@ RUBY VERSION
    ruby 2.4.2p198
 
 BUNDLED WITH
-   1.16.0
+   1.17.1
