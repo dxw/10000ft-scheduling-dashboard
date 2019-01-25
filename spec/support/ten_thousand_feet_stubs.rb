@@ -1,6 +1,6 @@
 module TenThousandFeetStubs
   def stub_ten_thousand_feet_client(client: double)
-    allow(TenThousandFeetWrapper).to receive(:client).and_return(client)
+    allow(TenkftClient).to receive(:new).and_return(client)
   end
 
   def stub_ten_thousand_feet_project_response(client:)

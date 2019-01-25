@@ -14,7 +14,9 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'ten_thousand_feet'
 gem 'nokogiri', '~> 1.8.2' # CVE-2017-18258
-gem 'loofah', '>= 2.2.3' # CVE-2018-16468 
+gem 'loofah', '>= 2.2.3' # CVE-2018-16468
+
+gem 'httparty'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
