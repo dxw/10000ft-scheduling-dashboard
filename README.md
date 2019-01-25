@@ -55,3 +55,7 @@ docker-compose rm app
 docker rmi thedxw/10000ft-scheduling-dashboard:latest
 docker-compose up -d app
 ```
+
+### dxw specific deployment instructions
+
+Within dxw, the dashboard is deployed through Dachshund. More detailed instructions are in the [private repo for Dachshund](https://github.com/dxw/dachshund#deployment).
