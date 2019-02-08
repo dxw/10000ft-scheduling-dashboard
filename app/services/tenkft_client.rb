@@ -6,15 +6,12 @@ class TenkftClient
 
   attr_reader :cookie
 
-  def initialize
-    raise ArgumentError, 'ENV is missing a key: `TENKFT_USERNAME`' unless ENV['TENKFT_USERNAME'].present?
-    raise ArgumentError, 'ENV is missing a key: `TENKFT_PASSWORD`' unless ENV['TENKFT_PASSWORD'].present?
-
+  def initialize(username:, password:)
     post_response = HTTParty.post(
       'https://app.10000ft.com/api/sessions/signin',
       body: {
-        user_id: ENV['TENKFT_USERNAME'],
-        password: ENV['TENKFT_PASSWORD']
+        user_id: username,
+        password: password
       },
     )
 
