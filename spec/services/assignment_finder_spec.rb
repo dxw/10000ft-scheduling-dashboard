@@ -18,22 +18,6 @@ RSpec.describe AssignmentFinder, type: :service do
       described_class.call(users: [user])
     end
 
-    # Sadly passing `to` and `from` to 10kft doesn't correctly filter down the response
-    context 'when the assignment is not occuring between the desired date range' do
-      it 'does not return it' do
-        user = User.new(id: 123)
-        start_date = Date.current
-        end_date = (Date.current + 2)
-
-        expect(client).to receive(:get_assignments)
-          .and_return(TenThousandFeetStubs.assignment_response(starts_at: '2000-1-1', ends_at: '2000-2-2'))
-
-        result = described_class.call(users: [user], from: start_date, to: end_date)
-
-        expect(result.count).to eq(0)
-      end
-    end
-
     #
     # it 'requests assignments by today by default' do
     #   user = User.new(id: 123)

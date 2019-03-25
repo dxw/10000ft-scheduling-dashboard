@@ -1,11 +1,12 @@
 class AssignmentFinder
+  include TenkftClientWrapper
+
   def self.call(users:, from: Date.current, to: Date.current)
-    client = TenkftClient.new
+    client = TenkftClientWrapper.client
 
     users.map do |user|
-      client.get_assignments(user.id, per_page: 500)['data']
-            .map { |assignment_args| Assignment.new(assignment_args) }
-            .select { |assignment| from >= assignment.starts_at && to <= assignment.ends_at }
+      client.get_assignments(user.id, per_page: 500, from: from, to: to)['data']
+        .map { |assignment_args| Assignment.new(assignment_args) }
     end.flatten
   end
 end
