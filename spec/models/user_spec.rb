@@ -46,5 +46,21 @@ RSpec.describe User, type: :model do
         expect(result).to eq(true)
       end
     end
+
+    context 'when the tag is "unbillable"' do
+      it 'returns true' do
+        user = User.new(tags: { 'data' => [{ 'value' => 'unbillable' }] })
+        result = user.blacklisted?
+        expect(result).to eq(true)
+      end
+    end
+
+    context 'when the tag is "cyber"' do
+      it 'returns true' do
+        user = User.new(tags: { 'data' => [{ 'value' => 'cyber' }] })
+        result = user.blacklisted?
+        expect(result).to eq(true)
+      end
+    end
   end
 end
