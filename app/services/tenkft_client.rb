@@ -4,18 +4,29 @@ class TenkftClient
   API_BASE_URL = "https://app.10000ft.com/api/v1/"
   include HTTParty
 
-  attr_reader :cookie
+  attr_reader :cookie, :auth_token, :error_message
 
   def initialize(username:, password:)
+    @error_message = nil
+
     post_response = HTTParty.post(
       'https://app.10000ft.com/api/sessions/signin',
+      headers: {
+        "Origin" => 'https://app.10000ft.com',
+        "Referer" => 'https://app.10000ft.com/si'
+      },
       body: {
         user_id: username,
         password: password
       },
     )
 
+    @auth_token = post_response["auth_token"]
     @cookie = parse_cookie(post_response)[:'tenkft-x']
+
+    if @auth_token.blank? && @cookie.blank?
+      @error_message = 'Could not authenticate.'
+    end
   end
 
   def get_projects(options)
@@ -35,19 +46,33 @@ class TenkftClient
   end
 
   def get(endpoint, options)
-    HTTParty.get(
-      API_BASE_URL + endpoint,
-      headers: request_headers,
-      query: options,
-    )
+    if auth_token
+      HTTParty.get(
+        API_BASE_URL + endpoint + "?auth_token=#{auth_token}",
+        query: options
+      )
+    elsif cookie
+      HTTParty.get(
+        API_BASE_URL + endpoint,
+        headers: request_headers,
+        query: options,
+      )
+    end
   end
 
   def post(endpoint, payload)
-    HTTParty.post(
-      API_BASE_URL + endpoint,
-      headers: request_headers,
-      body: payload,
-    )
+    if auth_token
+      HTTParty.post(
+        API_BASE_URL + endpoint + "?auth_token=#{auth_token}",
+        body: payload,
+      )
+    elsif cookie
+      HTTParty.post(
+        API_BASE_URL + endpoint,
+        headers: request_headers,
+        body: payload,
+      )
+    end
   end
 
   private
