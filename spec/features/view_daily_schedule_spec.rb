@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'View the daily schedule' do
-  let(:client) { double }
+  let(:client) { double(error_message: nil) }
   before(:each) do
     stub_ten_thousand_feet_client(client: client)
     stub_ten_thousand_feet_project_response(client: client)
