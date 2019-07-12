@@ -1,4 +1,10 @@
 class User
+  TAGS_TO_EXCLUDE_FROM_DASHBOARD = [
+    'hide-from-dashboard',
+    'unbillable',
+    'cyber'
+  ].freeze
+
   attr_reader :id,
               :first_name,
               :display_name,
@@ -16,7 +22,7 @@ class User
   end
 
   def blacklisted?
-    tags.include?('hide-from-dashboard')
+    !(tags & TAGS_TO_EXCLUDE_FROM_DASHBOARD).empty?
   end
 
   private def extract_tags(args)
