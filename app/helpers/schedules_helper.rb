@@ -19,6 +19,8 @@ module SchedulesHelper
     when 478728 then 'chris r'
     when 389584 then 'chris w'
     when 387517 then 'hippers'
+    when 614183 then 'james c'
+    when 614184 then 'james s'
     when 389616 then 'leeky'
     when 389599 then 'leanne c'
     when 389601 then 'leanne g'
