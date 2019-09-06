@@ -1,5 +1,5 @@
 locals {
-  app_name = "10kft"
+  app_name = "10kft-scheduling"
 
   app_github_owner = "dxw"
   app_github_repo  = "10000ft-scheduling-dashboard"
