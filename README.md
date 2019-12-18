@@ -41,7 +41,7 @@ The [setup](#setup) steps will get you started but it will not come with an inte
 bin/dstart --build
 ```
 
-## Deployment
+## Generic deployment instructions
 
 1. On your machine build a new Docker image and push it to a Docker repository:
 ```
@@ -58,4 +58,4 @@ docker-compose up -d app
 
 ### dxw specific deployment instructions
 
-Within dxw, the dashboard is deployed through Dachshund. More detailed instructions are in the [private repo for Dachshund](https://github.com/dxw/dachshund#deployment).
+Within dxw, the dashboard is deployed through Dalmatian. Up to date [global Dalmatian configuration](https://github.com/dxw/dalmatian-config) (private repo).
