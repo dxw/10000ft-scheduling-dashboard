@@ -2,14 +2,15 @@ require 'rails_helper'
 
 RSpec.feature 'View the daily schedule' do
   let(:client) { double(error_message: nil) }
+
   before(:each) do
     stub_ten_thousand_feet_client(client: client)
     stub_ten_thousand_feet_project_response(client: client)
     stub_ten_thousand_feet_user_response(client: client)
     stub_ten_thousand_feet_assignment_response(client: client)
     stub_ten_thousand_feet_leave_types_response(client: client)
+    page.driver.browser.basic_authorize(ENV.fetch('HTTP_BASIC_USER'), ENV.fetch('HTTP_BASIC_PASSWORD'))
   end
-
 
   scenario 'when there are no projects' do
     allow(client).to receive(:get_projects)
